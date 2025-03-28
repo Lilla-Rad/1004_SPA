@@ -1,0 +1,101 @@
+
+
+.p {
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+}
+
+
+.box {
+	margin: 5px;
+	font-size: 20px;
+	max-width: 75vw;
+	min-height: 50vh;
+	background: #1d1d1d;
+	font-family: 'Public Pixel', sans-serif;
+	padding: 5px;
+	border-radius:10px;
+}
+
+.inabox {
+	background: #363434;
+	margin: 10px;
+	padding: 10px;
+	border-left-style: solid;
+	border-color: #000;
+	border-radius:5px;
+	font-size:15px;
+	color:antiquewhite;
+}
+
+.inaboxinabox {
+	background: #363434;
+	margin: 10px;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: 18px;
+	font-style: italic;
+	color:lightgrey;
+	align-content:center;
+	align-items:center;
+	column-count:2;
+}
+
+.main-navigator{
+	padding: 5px;
+	margin-top: 45%;
+	margin-left: 15%;
+}
+
+.contnav {
+	padding: 30px;
+	width: 15%;
+	border: inset;
+	margin-left: 1%;
+}
+
+.partition{
+	column-count: 2;
+	column-gap: 10px;
+}
+
+.page-title{
+	 margin-left:16%;
+}
+
+.img {
+	float:right;
+}
+
+#gamer {
+	display:none;
+}
+
+.specialtext {
+	color:white;
+}
+
+#currenttime {
+	font-family:monospace;
+}
+
+.lookingdown {
+	opacity: 5%;
+	width:fit-content;
+	position:relative;
+}
+
+.trialbutton {
+	width:30px;
+	height:30px;
+	margin-left:10px;
+}
+
+.fillpuzzle {
+	font-family:'Global Monospace';
+	border:dashed;
+	width:75%;
+}
