@@ -1,0 +1,973 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="js/main.js"></script>
+    <!--<script src="js/spa.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>-->
+    <title>cumulus</title>
+    <link id="favi" rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/public-pixel');
+    </style>
+</head>
+
+
+<body>
+    <audio id="consoleAlert">
+        <source src="/img/notif.mp3" type="audio/mp3" />
+        <source src="/img/notif.ogg" type="audio/ogg" />
+    </audio>
+    <section id="indexpage">
+        <div style="margin-left:5%; position:sticky;">
+            <p id="siteper"></p>
+        </div>
+        <script>
+            document.getElementById("siteper").innerHTML = siteper + "%";
+            confirm("NOTICE:\n\nThis page is shutting down soon. In an attempt to archive it, you have been tasked with exploring it as thoroughly as possible, ensuring that no holes remain. \nPlease press OK when you are ready to begin.");
+            console.log('Man, this takes me back. I think the first time I tried something like this I must’ve been 13. I hadn’t the faintest idea what I was doing, but the thought of making a website sounded so cool -- I mean, why wouldn’t it ? -- so I booted up Notepad and started typing out the shitty little HTML I was sure would revolutionise the web. \nIt’s stupid looking back on it now, but it was fun. I had fun.');
+            rest(2000).then(() => { alert("(1) NEW MESSAGE (F12)"); });
+            document.getElementById("consoleAlert").play();
+        </script>
+        <div class="page-title">
+            <div class="container">
+                <h1 id="intro">welcome to my page :)</h1>
+                <p class="lead font-weight-bold" style="float:right;">
+                    <a class="nav-link active" href="#" onclick='pageswitch("indexpage", "gamepage")' id="game"><img id="startimg" style="max-width:90%;" src="img/cumulus.jpg" /></a>
+                    <a class="nav-link active" href="#" id="end"><img id="endimg" style="max-width:90%; display:none;" src="img/END.jpg" /></a>
+                </p>
+            </div>
+        </div>
+        <div class="contnav" id="navi" style="flex-wrap:wrap;">
+            <nav>
+                <ul style="font-family:Arial, sans-serif;">
+                    <li class="nav-item"><a class="nav-link" href="#" id="index">home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("indexpage", "faqpage")' id="faq">F.A.Q.</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("indexpage", "notepage")' id="note">PRIVACY NOTICE</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#" id="data">data</a></li>-->
+                </ul>
+            </nav>
+        </div>
+        <section id="cumulStartText">
+            <div class="page-title" style="margin-left:17%;">
+                <p id="cumultext">
+                    Some facts about cumulus clouds:<br /><ul>
+                        <li>Did you know that they can indicate fair weather?</li>
+                        <li style="list-style-type:none;">Indeed, like humans, certain cumulus clouds require <b>sunny days</b> to appear :)</li>
+                        <li>The bottoms of cumulus clouds are relatively flat, but the tops constantly change shape.</li>
+                        <li style="list-style-type:none;">The bottom is the lowest point where <i>all</i> the water condenses!</li>
+                        <li>"Cumulus" means heap.</li>
+                        <li style="list-style-type:none;">They're called this because they like forming piles.</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+        <section id="cumulEndText" style="display:none; margin-left:17%;">
+            <div class="page-title">DELETED</div>
+        </section>
+    </section>
+
+    <section id="gamepage" style="display:none;">
+        <div id="game"></div>
+        <div class="fifthoverlay" id="lastgame" style="display:none;">
+            <h1 class="finalgametext" style="align-content:center; margin-left:40%">
+                LOOK.
+            </h1>
+            <p class="finalgametext">
+                A long time ago, when clouds had just begun forming over the horizon, you took what little you had and started creating.
+            </p>
+            <p class="finalgametext">
+                You had no shelter from the elements. You had only your self. This was fair, for a while.
+            </p>
+            <p class="finalgametext" style="text-align:right; margin-left:60%;">
+                "If something else can do the thinking for me, why should I bother?" "If something else can create for me, why should I bother?"
+                "If I'm being burnt away anyway, why should I bother?"
+            </p>
+            <p class="finalgametext">These thoughts are not just your own. When faced with harsh conditions, the clouds fill with holes.</p>
+            <p id="address" class="finalgametext" style="text-align:center;"></p>
+            <p class="finalgametext" style="text-align:center;"><a href="#" onclick='pageswitch("lastgame", "fill1")'>There's only so much you can do here.</a></p>
+        </div>
+        <div class="contnav" style="flex-wrap:wrap; margin-top:4%; position:fixed;">
+            <nav>
+                <ul style="font-family:Arial, sans-serif;">
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("gamepage", "indexpage")' id="index">home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("gamepage", "faqpage")' id="faq">F.A.Q.</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("gamepage", "notepage")' id="note">PRIVACY NOTICE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="page-title">
+            <div class="container">
+                <h1>let's pla y?</h1>
+                <p class="lead font-weight-bold" style="float:right;">
+                    <section id="namer">
+                        <p style="font-size:15px">
+                            Your name?
+                            <input type="text" id="name" value="">
+                            <button id="named" onclick="nameInp()">Enter</button>
+                        </p>
+                        <p id="printname" style="font-size:15px;">
+                            <div id="reaction" style="display: none; font-size:15px;">
+                                <a onclick="hideshowSwitch()">Okay!</a><p><u><span class="specialtext">^ click here </span></u>^_^</p>
+                            </div>
+                        </p>
+                    </section>
+
+                    <section id="gamer">
+                        <p id="currenttime"></p>
+                        <script>
+                            getTime();
+                            gamestage = 0;
+                        </script>
+                        <p>Fill in the blanks:</p>
+                        <section id="fill1" class="fillpuzzle">
+                            <p>
+                                &lt;<input type="text" maxlength="3" size="2" id="one1" />&gt;
+                                Some facts about cumulus clouds:&lt;br /&gt; &lt;ul><br />
+                                &lt;li>Did you know that they indicate fair weather? &lt;/<input type="text" maxlength="3" size="2" id="two1" />><br />
+                                &lt;li>Indeed, like humans, certain cumulus clouds require  &lt;<input type="text" maxlength="3" size="2" id="three1" />>sunny days &lt;/b> to appear :) &lt;/li><br />
+                                &lt;<input type="text" maxlength="3" size="2" id="four1" />>The bottoms of cumulus clouds are relatively flat, but the tops constantly change shape. &lt;/li><br />
+                                &lt;li>The bottom is the lowest point where  &lt;i>all &lt;/<input type="text" maxlength="3" size="2" id="five1" />> the water condenses! &lt;/li><br />
+                                &lt;li>"Cumulus" means heap. &lt;/<input type="text" maxlength="3" size="2" id="six1" />><br />
+                                &lt;li>They're called this because they like forming piles. &lt;/li>
+                                &lt;/<input type="text" maxlength="3" size="2" id="seven1" />> &lt;/p>
+                            </p>
+                            <button onclick="validateOne()">submit</button>
+                        </section>
+
+                        <section id="fill2" class="fillpuzzle" style="display:none;">
+                            <p>
+                                &lt;<input type="text" maxlength="3" size="2" id="one2" />&gt;
+                                Some facts about cumulus clouds:&lt;br /&gt; &lt;ul><br />
+                                &lt;li>This is a myth. Cumulus clouds may indicate stormy weather as well. &lt;/<input type="text" maxlength="3" size="2" id="two2" />><br />
+                                &lt;li>Like humans, cumulus clouds require  &lt;<input type="text" maxlength="3" size="2" id="three2" />>any excuse &lt;/b> to appear :] &lt;/li><br />
+                                &lt;<input type="text" maxlength="3" size="2" id="four2" />>The bottoms of cumulus clouds are relatively flat, but the tops constantly change shape. &lt;/li><br />
+                                &lt;li>The bottom is the lowest point where  &lt;i>all &lt;/<input type="text" maxlength="3" size="2" id="five2" />> the water condenses! &lt;/li><br />
+                                &lt;li>"Cumulus" means heap. &lt;/<input type="text" maxlength="3" size="2" id="six2" />><br />
+                                &lt;li>They can form alone, or in groups. &lt;/li>
+                                &lt;/<input type="text" maxlength="3" size="2" id="seven2" />> &lt;/p>
+                            </p>
+                            <button onclick="validateTwo()">submit</button>
+                        </section>
+
+                        <section id="fill3" class="fillpuzzle" style="display:none;">
+                            <p>
+                                &lt;<input type="text" maxlength="3" size="2" id="one3" />&gt;
+                                Some facts about cumulus clouds:&lt;br /&gt; &lt;ul><br />
+                                &lt;li>Cumulus clouds are indicative of no particular weather type at all; they simply are. &lt;/<input type="text" maxlength="3" size="2" id="two3" />><br />
+                                &lt;li>Like humans, cumulus clouds require &lt;<input type="text" maxlength="3" size="2" id="three3" />>any excuse &lt;/b> to appear :} &lt;/li><br />
+                                &lt;<input type="text" maxlength="3" size="2" id="four3" />>The bottoms of cumulus clouds are relatively flat, but the tops constantly change shape. &lt;/li><br />
+                                &lt;li>The bottom is the lowest point where  &lt;i>it &lt;/<input type="text" maxlength="3" size="2" id="five3" />> all condenses. &lt;/li><br />
+                                &lt;li>"Cumulus" means sickening crunch. &lt;/<input type="text" maxlength="3" size="2" id="six3" />><br />
+                                &lt;li>They can form alone, or in groups. &lt;/li>
+                                &lt;/<input type="text" maxlength="3" size="2" id="seven3" />> &lt;/p>
+                            </p>
+                            <button onclick="validateThree()">˙ǝƃɐʌlɐs oʇ ʇɟǝl ƃuᴉɥʇou sɐʍ ǝɹǝɥ┴ ˙spuɐɥ ʎɯ uᴉ pǝʌlossᴉp ʇᴉ ɟo llɐ puǝ ǝɥʇ uᴉ ʇnq 'pɹɐɥ ʎllɐǝɹ 'ʎllɐǝɹ pǝᴉɹʇ I ˙ʇᴉ ǝʌɐs ʇ,uplnoɔ I</button>
+                        </section>
+
+                        <section id="fill4" class="fillpuzzle" style="display:none;">
+                            <p>
+                                &lt;<input type="text" maxlength="3" size="2" id="one4" />&gt;
+                                Some facts about cumulus clouds:&lt;br /&gt; &lt;ul><br />
+                                &lt;li>Cumulus clouds are. &lt;/<input type="text" maxlength="3" size="2" id="two4" />><br />
+                                &lt;li>That's it. &lt;<input type="text" maxlength="3" size="2" id="three4" />> &lt;/b>  &lt;/li><br />
+                                &lt;<input type="text" maxlength="3" size="2" id="four4" />>The top can only change so much. I don't know what you expect from it. &lt;/li><br />
+                                &lt;li>The bottom is the lowest point where  &lt;i>it &lt;/<input type="text" maxlength="3" size="2" id="five4" />> all condenses. &lt;/li><br />
+                                &lt;li>"Cumulus" means heap. &lt;/<input type="text" maxlength="3" size="2" id="six4" />><br />
+                                &lt;li>They can form alone, or in groups. I thought of us. &lt;/li>
+                                &lt;/<input type="text" maxlength="3" size="2" id="seven4" />> &lt;/p>
+                            </p>
+                            <button onclick="validateFour()"></button>
+                        </section>
+
+                        <section id="fill5" class="fillpuzzle" style="display:none;">
+                            <p>
+                                &lt;<input type="text" maxlength="3" size="2" id="one5" />&gt;
+                                Some facts about cumulus clouds?&lt;br /&gt; &lt;ul><br />
+                                &lt;li>What else would you like to know? &lt;/<input type="text" maxlength="3" size="2" id="two5" />><br />
+                                &lt;li>I'm running out of things to tell you. &lt;<input type="text" maxlength="3" size="2" id="three5" />>Get out of here &lt;/b> already. &lt;/li><br />
+                                &lt;<input type="text" maxlength="3" size="2" id="four5" />>Your vital signs have already condensed themselves into their most restrictive shape. What does that make of the rest? &lt;/li><br />
+                                &lt;li>If you don't know, feel free to say. &lt;i>I have no right &lt;/<input type="text" maxlength="3" size="2" id="five5" />> to judge &lt;/li><br />
+                                &lt;li>"cumulus" means heap. &lt;/<input type="text" maxlength="3" size="2" id="six5" />> inthemomentsbeforeitsselfcollapseswhatkindofthoughtsflythroughthemindsofmany<br />
+                                &lt;li>I thought. &lt;/li>
+                                &lt;/<input type="text" maxlength="3" size="2" id="seven5" />> &lt;/p>
+                            </p>
+                            <button onclick="validateFive()">,?</button>
+                        </section>
+
+                        <script>
+                            function validateOne() {
+                                let correct = 0;
+                                let first = document.getElementById("one1").value;
+                                (first == "p") ? correct++ : correct + 0;
+                                let second = document.getElementById("two1").value;
+                                (second == "li") ? correct++ : correct + 0;
+                                let third = document.getElementById("three1").value;
+                                (third == "b") ? correct++ : correct + 0;
+                                let fourth = document.getElementById("four1").value;
+                                (fourth == "li") ? correct++ : correct + 0;
+                                let fifth = document.getElementById("five1").value;
+                                (fifth == "i") ? correct++ : correct + 0;
+                                let sixth = document.getElementById("six1").value;
+                                (sixth == "li") ? correct++ : correct + 0;
+                                let seventh = document.getElementById("seven1").value;
+                                (seventh == "ul") ? correct++ : correct + 0;
+                                resetset();
+                                if (correct == 7) {
+                                    alert("LEVEL 1 COMPLETE!");
+                                    if (!stageFirst) {
+                                        incrsiteper();
+                                        stageFirst = true;
+                                    }
+                                    console.log("I remember at some point I wanted to make an archive site for a series I liked. It was meant to function as an easy-access resource summarising the plot and characters, for people who knew nothing or very little about it. I wanted to show it to my friends since at the time they seemed to dismiss most of my interests. Then I found out that a wikipedia page already existed, and a fan wiki on top of that. Oh well.");
+                                    rest(2000).then(() => { alert("(1) NEW MESSAGE (F12)"); });
+                                    document.getElementById("consoleAlert").play();
+                                    document.getElementById("fill1").style.display = "none";
+                                    bgChange();
+                                    document.getElementById("fill2").style.display = "block";
+                                    gamestage++;
+                                }
+                                else {
+                                    alert("You got " + correct + " out of 7!");
+                                    alert("So close! Keep going :)");
+                                }
+                            }
+
+                            function validateTwo() {
+                                let correct = 0;
+                                let first = document.getElementById("one2").value;
+                                (first == "p") ? correct++ : correct + 0;
+                                document.getElementById("one2").value = "";
+                                let second = document.getElementById("two2").value;
+                                (second == "li") ? correct++ : correct + 0;
+                                document.getElementById("two2").value = "";
+                                let third = document.getElementById("three2").value;
+                                (third == "b") ? correct++ : correct + 0;
+                                document.getElementById("three2").value = "";
+                                let fourth = document.getElementById("four2").value;
+                                (fourth == "li") ? correct++ : correct + 0;
+                                document.getElementById("four2").value = "";
+                                let fifth = document.getElementById("five2").value;
+                                (fifth == "i") ? correct++ : correct + 0;
+                                document.getElementById("five2").value = "";
+                                let sixth = document.getElementById("six2").value;
+                                (sixth == "li") ? correct++ : correct + 0;
+                                document.getElementById("six2").value = "";
+                                let seventh = document.getElementById("seven2").value;
+                                (seventh == "ul") ? correct++ : correct + 0;
+                                document.getElementById("seven2").value = "";
+                                if (correct == 7) {
+                                    alert("LEVEL 2 COMPLETE!\nNEXT LEVEL: 3");
+                                    console.log("In the end, I never showed them anything. It’s harder when you can’t fall on pride or playtesting as an excuse. ");
+                                    document.getElementById("consoleAlert").play();
+                                    document.getElementById("fill2").style.display = "none";
+                                    bgChange();
+                                    document.getElementById("fill3").style.display = "block";
+                                    gamestage++;
+                                }
+                                else {
+                                    alert("You got " + correct + " out of 7!");
+                                    alert("So close! Keep going :)");
+                                }
+                            }
+
+                            function validateThree() {
+
+                                let correct = 0;
+                                let first = document.getElementById("one3").value;
+                                (first == "p") ? correct++ : correct + 0;
+                                document.getElementById("one3").value = "";
+                                let second = document.getElementById("two3").value;
+                                (second == "li") ? correct++ : correct + 0;
+                                document.getElementById("two3").value = "";
+                                let third = document.getElementById("three3").value;
+                                (third == "b") ? correct++ : correct + 0;
+                                document.getElementById("three3").value = "";
+                                let fourth = document.getElementById("four3").value;
+                                (fourth == "li") ? correct++ : correct + 0;
+                                document.getElementById("four3").value = "";
+                                let fifth = document.getElementById("five3").value;
+                                (fifth == "i") ? correct++ : correct + 0;
+                                document.getElementById("five3").value = "";
+                                let sixth = document.getElementById("six3").value;
+                                (sixth == "li") ? correct++ : correct + 0;
+                                document.getElementById("six3").value = "";
+                                let seventh = document.getElementById("seven3").value;
+                                (seventh == "ul") ? correct++ : correct + 0;
+                                document.getElementById("seven3").value = "";
+                                if (correct == 7) {
+                                    alert("NEXT LEVEL: 4");
+                                    if (!stageThird) {
+                                        incrsiteper();
+                                        stageThird = true;
+                                    }
+                                    console.log("I think my monitor’s fucked");
+                                    document.getElementById("consoleAlert").play();
+                                    document.getElementById("fill3").style.display = "none";
+                                    bgChange();
+                                    document.getElementById("fill4").style.display = "block";
+                                    gamestage++;
+                                }
+                                else {
+                                    alert("You got " + correct + " out of 7!");
+                                    alert("So close! Keep going :)");
+                                }
+                            }
+
+
+                            function validateFour() {
+                                let correct = 0;
+                                let first = document.getElementById("one4").value;
+                                (first == "p") ? correct++ : correct + 0;
+                                document.getElementById("one4").value = "";
+                                let second = document.getElementById("two4").value;
+                                (second == "li") ? correct++ : correct + 0;
+                                document.getElementById("two4").value = "";
+                                let third = document.getElementById("three4").value;
+                                (third == "b") ? correct++ : correct + 0;
+                                document.getElementById("three4").value = "";
+                                let fourth = document.getElementById("four4").value;
+                                (fourth == "li") ? correct++ : correct + 0;
+                                document.getElementById("four4").value = "";
+                                let fifth = document.getElementById("five4").value;
+                                (fifth == "i") ? correct++ : correct + 0;
+                                document.getElementById("five4").value = "";
+                                let sixth = document.getElementById("six4").value;
+                                (sixth == "li") ? correct++ : correct + 0;
+                                document.getElementById("six4").value = "";
+                                let seventh = document.getElementById("seven4").value;
+                                (seventh == "ul") ? correct++ : correct + 0;
+                                document.getElementById("seven4").value = "";
+                                if (correct == 7) {
+                                    alert(".");
+                                    console.log("nvm");
+                                    document.getElementById("consoleAlert").play();
+                                    document.getElementById("fill4").style.display = "none";
+                                    bgChange();
+                                    document.getElementById("fill5").style.display = "block";
+                                    gamestage++;
+                                }
+                                else {
+                                    alert("You got " + correct + " out of 7!");
+                                    alert("So close! Keep going :)");
+                                }
+                            }
+
+                            function validateFive() {
+
+                                let correct = 0;
+                                let first = document.getElementById("one5").value;
+                                (first == "p") ? correct++ : correct + 0;
+                                document.getElementById("one5").value = "";
+                                let second = document.getElementById("two5").value;
+                                (second == "li") ? correct++ : correct + 0;
+                                document.getElementById("two5").value = "";
+                                let third = document.getElementById("three5").value;
+                                (third == "b") ? correct++ : correct + 0;
+                                document.getElementById("three5").value = "";
+                                let fourth = document.getElementById("four5").value;
+                                (fourth == "li") ? correct++ : correct + 0;
+                                document.getElementById("four5").value = "";
+                                let fifth = document.getElementById("five5").value;
+                                (fifth == "i") ? correct++ : correct + 0;
+                                document.getElementById("five5").value = "";
+                                let sixth = document.getElementById("six5").value;
+                                (sixth == "li") ? correct++ : correct + 0;
+                                document.getElementById("six5").value = "";
+                                let seventh = document.getElementById("seven5").value;
+                                (seventh == "ul") ? correct++ : correct + 0;
+                                document.getElementById("seven5").value = "";
+                                if (correct == 7) {
+                                    alert("can you believe this is something I started doing just for fun?");
+                                    if (!stageFifth) {
+                                        incrsiteper();
+                                        stageFifth = true;
+                                        document.getElementById("fill5").style.display = "none";
+                                        bgChange();
+                                        document.getElementById("lastgame").style.display = "block";
+                                        console.log("Now I KNOW my monitor’s fucked. Let’s try going back.");
+                                        document.getElementById("consoleAlert").play();
+                                        rest(2000).then(() => { alert("(1) NEW MESSAGE (F12)"); });
+                                    }
+                                    else if (stageFifth) {
+                                        document.body.style.backgroundColor = "white";
+                                        pageswitch("gamepage", "indexpage");
+                                        pageswitch("fill5", "fill1");
+                                    }
+                                    gamestage++;
+                                }
+                                else {
+                                    alert("You got " + correct + " out of 7!");
+                                    alert("So close! Keep going :)");
+                                }
+                            }
+
+                        </script>
+                    </section>
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="faqpage" style="display:none;">
+        <div class="contnav" style="flex-wrap:wrap; margin-top:4%; position:fixed;">
+            <nav>
+                <ul id="faqnav" style="font-family:Arial, sans-serif;">
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("faqpage", "indexpage")' id="index">home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="faq">F.A.Q.</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("faqpage", "notepage")' id="note">PRIVACY NOTICE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="page-title">
+            <div class="container">
+                <h1 id="faqtitle">F.A.Q.</h1>
+                <p class="lead font-weight-bold" style="float:right;">
+                    <section id="faqfalse">
+                        <p><b>Q:</b> <i>Why cumulus?</i><br /><b>A: </b>Why not? Throughout most of human history, people have turned to the skies for answers. It's not unheard of to channel oneself into that.<br /><b>Q: </b><i>Why cumulus though? Why not stars, or meteorites?</i></p>
+                        <div><a class="faqswitch" href="#" onclick='pageswitch("faqfalse", "faqreal")'><b>A: </b>Are you going to live to 2,002,025?</a></div>
+                    </section>
+                    <section id="faqreal" style="display:none;">
+                        <div class="box">
+                            <section id="base">
+                                <section id="1">
+                                    <div class="inabox" id="question">
+                                        Q1. When choosing the setting for an adventure game, you need to make sure that you start at the right level. For example, you'd rather not start with...
+                                    </div>
+                                    <div class="inaboxinabox" id="answer">
+                                        <button onclick="revealSection(2)">A.</button> Your head in the clouds.
+                                        <button onclick="revealSection(2)">B.</button> Your feet on the woodland path.
+                                    </div>
+                                </section>
+                                <section id="2" style="display: none;">
+                                    <div class="inabox" style="text-align:center;">
+                                        <a onclick="revealSection(3)"><u>Right.</u></a>
+                                    </div>
+                                </section>
+                                <section id="3" style="display:none;">
+                                    <div class="inabox">
+                                        Q2. Of course, beginnings are nothing without endings. At the end of this journey you hope to find...
+                                    </div>
+                                    <div class="inaboxinabox" id="answer">
+                                        <button onclick="revealSection(4)">A.</button> Something peaceful.
+                                        <button onclick="revealSection(4)">B.</button> Something exciting.
+                                    </div>
+                                    <section id="4" style="display: none;">
+                                        <div class="inabox" style="text-align:center;">
+                                            <a onclick="revealSection(5)"><u>Of course.</u></a>
+                                        </div>
+                                    </section>
+                                </section>
+                                <section id="5" style="display:none;">
+                                    <div class="inabox">
+                                        Q3. Reaching a fork in your current path, you walk towards...
+                                    </div>
+                                    <div class="inaboxinabox" id="answer">
+                                        <button onclick="revealSection(6)">A.</button> The gloomy forest on the left.
+                                        <button onclick="revealSection(6)">B.</button> The lush jungle on the right.
+                                    </div>
+                                    <section id="6" style="display: none;">
+                                        <div class="inabox" style="text-align:center;">
+                                            <a onclick="revealSection(7)"><u>Yes, the gloomy forest. Was there ever any doubt?</u></a>
+                                        </div>
+                                    </section>
+                                </section>
+                                <section id="7" style="display:none;">
+                                    <div class="inabox">
+                                        Q4. At some point, you became aware of the distance between you and the stars.
+                                    </div>
+                                    <div class="inaboxinabox" id="answer">
+                                        <button onclick="revealSection(8)">A.</button> This makes me feel sad.
+                                        <button onclick="revealSection(8)">B.</button> This makes me feel relieved.
+                                    </div>
+                                    <section id="8" style="display: none;">
+                                        <div class="inabox" style="text-align:center;">
+                                            <a onclick="revealSection(9)"><u>Should it?</u></a>
+                                        </div>
+                                    </section>
+                                </section>
+                                <section id="9" style="display:none;">
+                                    <div class="inabox">
+                                        Q5. Clouds have begun to gather in the horizon. What will you do?
+                                    </div>
+                                    <div class="inaboxinabox" id="answer">
+                                        <button onclick="revealSection(10)">A.</button> I will take shelter.
+                                        <button onclick="revealSection(10)">B.</button> I will weather the storm.
+                                    </div>
+                                    <section id="10" style="display: none;">
+                                        <div class="inabox" style="text-align:center;">
+                                            <a onclick="revealSection(11)"><u>What will you do?</u></a>
+                                        </div>
+                                    </section>
+                                </section>
+                            </section>
+                            <section id="trial" style="display:none;">
+                                <div class="inabox">Present your totem of integrity: <input type="text" id="integrity" /><button id="tb1" class="trialbutton" onclick="checkIntegrity()"></button></div>
+                                <div class="inabox">Present your totem of patience: <input type="text" id="patience" /><button id="tb2" class="trialbutton" onclick="checkPatience()"></button></div>
+                                <div class="inabox">Present your totem of self: <input type="text" id="self" /><button id="tb3" class="trialbutton" onclick="checkSelf()"></button></div>
+                                <div class="inabox" style="text-align:center;">I understand if you'd rather keep these things to yourself.</div>
+                            </section>
+                            <script>
+                                function checkIntegrity() {
+                                    var integattempt = document.getElementById("integrity").value;
+                                    if (integattempt == "sppgiw") {
+                                        document.getElementById("integrity").disabled = true;
+                                        document.getElementById("tb1").disabled = true;
+                                        alert("correct! :)");
+                                        incrsiteper();
+                                        document.getElementById("integrity").value = "";
+                                    }
+                                    else {
+                                        alert("Have you tried looking down from where you're standing?");
+                                    }
+                                }
+
+                                function checkPatience() {
+                                    var patattempt = document.getElementById("patience").value;
+                                    if (patattempt == "sbwgeik") {
+                                        document.getElementById("patience").disabled = true;
+                                        document.getElementById("tb2").disabled = true;
+                                        alert("correct! :)");
+                                        incrsiteper();
+                                        document.getElementById("patience").value = "";
+                                    }
+                                    else {
+                                        alert("Have you tried looking down from where you're standing?");
+                                    }
+                                }
+
+                                function checkSelf() {
+                                    document.getElementById("self").disabled = true;
+                                    document.getElementById("tb3").disabled = true;
+                                    alert(":)");
+                                    incrsiteper();
+                                    document.getElementById("integrity").value = "";
+                                }
+
+                            </script>
+                        </div>
+                    </section>
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="notepage" style="display:none;">
+        <div class="contnav" style="flex-wrap:wrap; margin-top:4%; position:fixed;">
+            <nav>
+                <ul style="font-family:Arial, sans-serif;">
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("notepage", "indexpage")' id="index">home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick='pageswitch("notepage", "faqpage")' id="faq">F.A.Q.</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="note">PRIVACY NOTICE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="page-title">
+            <div class="container">
+                <h1>PRIVACY NOTICE</h1>
+                <section id="priv">
+                    <p class="lead font-weight-bold" style="float:right;">
+                        <h3>
+                            This privacy notice tells you what to expect us to do with your personal information.
+                        </h3>
+                    <p>
+                        <h4>
+                            Contact details
+                        </h4>
+                    <p class="specialtext">
+                        [EMAIL UNREACHABLE]
+                    </p>
+                    <h4>
+                        What information we collect, use, and why
+                    </h4>
+                    <p>
+                        We collect or use the following information <b>for disciplinary investigations or to prevent, detect, investigate or prosecute crimes</b>:
+                        <ul>
+                            <li>
+                                Names and contact details for students/children
+                            </li>
+                            <li>
+                                Names and contact details for carers
+                            </li>
+                            <li>
+                                Gender
+                            </li>
+                            <li>Pronoun preferences</li>
+                            <li>
+                                Welfare information (includes family and home life circumstances and history)
+                            </li>
+                            <li>
+                                Special Educational Needs and Disabilities (SEND) information (includes reasonable adjustments and special educational needs and disabilities)
+                            </li>
+                            <li>Details of any criminal convictions</li>
+                            <li>Attendance and reason for absence data</li>
+                            <li>
+                                Witness statements and contact details
+                            </li>
+                            <li>
+                                Records and reports
+                            </li>
+                            <li>
+                                Video recordings of public areas (including entrances and outside spaces to which some or all members of the public have access)
+                            </li>
+                            <li>
+                                Audio recordings of public areas (including entrances and outside spaces to which some or all members of the public have access)
+                            </li>
+                            <li>
+                                Video recordings of student access areas (including classrooms, corridors, canteens and outside spaces to which students have access)
+                            </li>
+                            <li>
+                                Audio recordings of student access areas (including classrooms, corridors, canteens and outside spaces to which only staff have access)
+                            </li>
+                            <li>
+                                Call recordings
+                            </li>
+                            <li>
+                                Aspirations
+                            </li>
+                        </ul>
+                        We also collect or use the following information <b>for disciplinary investigations or to prevent, detect, investigate or prosecute crimes</b>:
+                        <ul>
+                            <li>
+                                Racial or ethnic origin
+                            </li>
+                            <li>
+                                Political opinions
+                            </li>
+                            <li>
+                                Religious or philosophical beliefs
+                            </li>
+                            <li>
+                                Trade union membership
+                            </li>
+                            <li>
+                                Genetic information
+                            </li>
+                            <li>
+                                Biometric information (where used to identify someone)
+                            </li>
+                            <li>
+                                Health information
+                            </li>
+                            <li>
+                                Sex life information
+                            </li>
+                            <li>
+                                Sexual orientation information
+                            </li>
+                        </ul>
+                        We collect or use the following personal information for <b>dealing with queries, complaints or claims</b>:
+                        <ul>
+                            <li>
+                                Names and contact details
+                            </li>
+                            <li>Address</li>
+                            <li>
+                                Payment details
+                            </li>
+                            <li>
+                                Account login or user information
+                            </li>
+                            <li>
+                                Purchase or service history
+                            </li>
+                            <li>
+                                Video recordings of public areas
+                            </li>
+                            <li>
+                                Audio recordings of public areas
+
+                            </li>
+                            <li>
+                                Video recordings of private or staff only areas
+                            </li>
+                            <li>
+                                Audio recordings of private or staff only areas
+                            </li>
+                            <li>
+                                Call recordings
+                            </li>
+                            <li>
+                                Dashcam footage - outside vehicle
+                            </li>
+                            <li>
+                                Dashcam footage - inside vehicle
+                            </li>
+                            <li>
+                                Witness statements and contact details
+                            </li>
+                            <li>
+                                Relevant information from previous investigations
+                            </li>
+                            <li>
+                                Financial transaction information
+                            </li>
+                            <li>
+                                Information relating to health and safety (including incident investigation details and reports and accident book records)
+                            </li>
+                            <li>
+                                Correspondence
+                            </li>
+                            <li>
+                                Special Educational Needs and Disabilities (SEND) or additional support information (includes reasonable adjustments and special educational needs and disabilities)
+                            </li>
+                            <li>Attendance and reason for absence data</li>
+                        </ul>
+                        We also collect the following information for <b>dealing with queries, complaints or claims</b>:
+                        <ul>
+                            <li>
+                                Racial or ethnic origin
+                            </li>
+                            <li>
+                                Political opinions
+                            </li>
+                            <li>
+                                Religious or philosophical beliefs
+                            </li>
+                            <li>
+                                Trade union membership
+                            </li>
+                            <li>
+                                Genetic information
+                            </li>
+                            <li>
+                                Biometric information (where used to identify someone)
+                            </li>
+                            <li>
+                                Health information
+                            </li>
+                            <li>
+                                Sex life information
+                            </li>
+                            <li>
+                                Sexual orientation information
+                            </li>
+                        </ul>
+                        We collect or use the following information <b>for archiving purposes</b>:
+                        <ul>
+                            <li>
+                                Names and contact details
+                            </li>
+                            <li>
+                                Addresses
+                            </li>
+                            <li>Photographs</li>
+                            <li>
+                                Website and app user journey information
+                            </li>
+                            <li>
+                                IP addresses
+                            </li>
+                            <li>
+                                Alumni records
+                            </li>
+                        </ul>
+                        We also collect or use the following information <b>for archiving purposes</b>:
+                        <ul>
+                            <li>
+                                Racial or ethnic origin
+                            </li>
+                            <li>
+                                Political opinions
+                            </li>
+                            <li>
+                                Religious or philosophical beliefs
+                            </li>
+                            <li>
+                                Trade union membership
+                            </li>
+                            <li>
+                                Genetic information
+                            </li>
+                            <li>
+                                Biometric information (where used to identify someone)
+                            </li>
+                            <li>
+                                Health information
+                            </li>
+                            <li>
+                                Sex life information
+                            </li>
+                            <li>
+                                Sexual orientation information
+                            </li>
+                        </ul>
+                        We collect or use the following information <b>to comply with legal requirements</b>:
+                        <ul>
+                            <li>
+                                Identification documents
+                            </li>
+                            <li>
+                                Health and safety information
+                            </li>
+                            <li>
+                                Criminal offence data (including Disclosure Barring Service (DBS), Access NI or Disclosure Scotland checks)
+                            </li>
+                        </ul>
+                        We also collect or use the following information <b>to comply with legal requirements</b>:
+                        <ul>
+                            <li>
+                                Racial or ethnic origin
+                            </li>
+                            <li>
+                                Political opinions
+                            </li>
+                            <li>
+                                Religious or philosophical beliefs
+                            </li>
+                            <li>
+                                Trade union membership
+                            </li>
+                            <li>
+                                Genetic information
+                            </li>
+                            <li>
+                                Biometric information (where used to identify someone)
+                            </li>
+                            <li>
+                                Health informaqtion
+                            </li>
+                            <li>
+                                Sex life information
+                            </li>
+                            <li>
+                                Sexual orientation information
+                            </li>
+                        </ul>
+                        <h3>Lawful bases and data protection rights</h3>
+                        Under UK data protection law, we must have a “lawful basis” for collecting and using your personal information. There is a list of possible lawful bases in the UK GDPR. You can find out more about lawful bases on the ICO’s website.
+                        Which lawful basis we rely on may affect your data protection rights which are in brief set out below. You can find out more about your data protection rights and the exemptions which may apply on the ICO’s website:
+                        <ul>
+                            <li>
+                                <b>Your right of access -</b> You have the right to ask us for copies of your personal information. You can request other information such as details about where we get personal information from and who we share personal information with. There are some exemptions which means you may not receive all the information you ask for. You can read more about this right here.
+                            </li>
+                            <li>
+                                <b>Your right to rectification -</b> You have the right to ask us to correct or delete personal information you think is inaccurate or incomplete. You can read more about this right here.
+                            </li>
+                            <li><b>Your right to erasure - </b>You have the right to ask us to delete you(r personal information. You can read more about this right here.</li>
+                            <li>
+                                <b>Your right to restriction of processing -</b> You have the right to ask us to limit how we can use your personal information. We may answer. You can read more about this right here.
+                            </li>
+                            <li>
+                                <b>Your right to object to processing - </b>You had the right to object to the processing of your personal data. You can read more about this right here.
+                            </li>
+                            <li>
+                                <b>Your right to data portability -</b> You have the right to ask that we transfer the personal information you gave us to another organisation, or to you. You can read more about this right here.
+                            </li>
+                            <li><b>Your right to withdraw consent – When</b> we use consent as our lawful basis you may have the right to withdraw your consent at any time.</li>
+                        </ul>
+                        If you make a request, we must respond to you with undue delay and in any event within one month.<br />To make a data protection rights request, please contact us using the contact details at the top of this privacy notice.
+                        <h3>Our <a class="specialtext" onclick='pageswitch("priv", "eog")'>UN</a>LAwful bases for the collection and use of your data</h3>
+                        Our lawful bases for collecting or using personal information <b>for disciplinary investigations or to prevent, detect, investigate or prosecute crimes are</b>:
+                        <ul>
+                            <li>
+                                Consent - we have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do not have the right to withdraw your consent at any time.
+                            </li>
+                            <li>
+                                Contract - we have to collect or use the information so we can enter into or carry out a contract with you. All of your data protection rights may apply except the right to object.
+                            </li>
+                            <li>
+                                Legal obligation - we have to collect or use your information so we can comply with the law. All of your data protection rights may apply, except the right to erasure, the right to object and the right to data portability.
+                            </li>
+                            <li>
+                                Vital interests - collecting or using the information is needed when someone’s physical or mental health or wellbeing is at urgent or serious risk. This includes an urgent need for life sustaining food, water, clothing or shelter. All of your data protection rights may apply, except the right to object and the right to portability.
+                            </li>
+                            <li>
+                                Public task - we have to collect or use your information to carry out a task laid down in law, which the law intends to be performed by an organisation such as ours. All of your data protection rights may apply, except the right to erasure and the right to portability.
+                            </li>
+                        </ul>
+                        Our lawful bases for collecting or using personal information for <b>dealing with queries, complaints or claims are</b>:
+                        <ul>
+                            <li>
+                                Consent - we have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do not have the right to withdraw your consent at any time.
+                            </li>
+                            <li>
+                                Contract - we have to collect or use the information so we can enter into or carry out a contract with you. All of your data protection rights may apply except the right to object.
+                            </li>
+                            <li>
+                                Legal obligation - we have to collect or use your information so we can comply with the law. All of your data protection rights may apply, except the right to erasure, the right to object and the right to data portability.
+                            </li>
+                            <li>
+                                Vital interests - collecting or using the information is needed when someone’s physical or mental health or wellbeing is at urgent or serious risk. This includes an urgent need for life sustaining food, water, clothing or shelter. All of your data protection rights may apply, except the right to object and the right to portability.
+                            </li>
+                            <li>
+                                Public task - we have to collect or use your information to carry out a task laid down in law, which the law intends to be performed by an organisation such as ours. All of your data protection rights may apply, except the right to erasure and the right to portability.
+                            </li>
+                        </ul>
+                        Our lawful bases for collecting or using personal information <b>for archiving purposes are</b>:
+                        <ul>
+                            <li>
+                                Consent - we have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do not have the right to withdraw your consent at any time.
+                            </li>
+                            <li>
+                                Contract - we have to collect or use the information so we can enter into or carry out a contract with you. All of your data protection rights may apply except the right to object.
+                            </li>
+                            <li>
+                                Legal obligation - we have to collect or use your information so we can comply with the law. All of your data protection rights may apply, except the right to erasure, the right to object and the right to data portability.
+                            </li>
+                            <li>
+                                Vital interests - collecting or using the information is needed when someone’s physical or mental health or wellbeing is at urgent or serious risk. This includes an urgent need for life sustaining food, water, clothing or shelter. All of your data protection rights may apply, except the right to object and the right to portability.
+                            </li>
+                            <li>
+                                Public task - we have to collect or use your information to carry out a task laid down in law, which the law intends to be performed by an organisation such as ours. All of your data protection rights may apply, except the right to erasure and the right to portability.
+                            </li>
+                        </ul>
+                        Our lawful bases for collecting or using personal information <b>to comply with legal requirements are</b>:
+                        <ul>
+                            <li>
+                                Consent - we have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do not have the right to withdraw your consent at any time.
+                            </li>
+                            <li>
+                                Contract - we have to collect or use the information so we can enter into or carry out a contract with you. All of your data protection rights may apply except the right to object.
+                            </li>
+                            <li>
+                                Legal obligation - we have to collect or use your information so we can comply with the law. All of your data protection rights may apply, except the right to erasure, the right to object and the right to data portability.
+                            </li>
+                            <li>
+                                Vital interests - collecting or using the information is needed when someone’s physical or mental health or wellbeing is at urgent or serious risk. This includes an urgent need for life sustaining food, water, clothing or shelter. All of your data protection rights may apply, except the right to object and the right to portability.
+                            </li>
+                            <li>
+                                Public task - we have to collect or use your information to carry out a task laid down in law, which the law intends to be performed by an organisation such as ours. All of your data protection rights may apply, except the right to erasure and the right to portability.
+                            </li>
+                        </ul>
+                        <h2>
+                            Where we get personal information from
+                        </h2>
+                        <ul><li>Directly from you</li></ul>
+                        <h3>
+                            How long we keep information
+                        </h3>
+                        [Insert information about how long you store personal information here.]<br />
+                        [You said you didn't have a retention schedule, or you weren't sure, or you aren’t sure. Once you've downloaded or copy and pasted this privacy notice, you can fill the information in above. You must not publish the privacy notice without it.]
+                        <h3>Who we share information with</h3>
+                        <h4>
+                            Others we share personal information with
+                        </h4>
+                        <ul>
+                            <li>Other relevant third parties:</li>
+                            <li>This program is not going to fix things. Nonetheless, it will try very hard.</li>
+                        </ul>
+                        <h3>
+                            How to complain
+                        </h3>
+                        If you have any concerns about our use of your personal data, you can make a complaint to us using the contact details at the top of this privacy notice.<br />
+                        If you remain unhappy with how we’ve used your data after raising a complaint with us, you can also complain to whoever will <a href="sbwgeik">[listen]</a>.
+                </section>
+                <section id="eog" style="display:none;">
+                    <div class="container" style="text-align:center"><img class="lookingdown" src="img/eog.jpg" /><p style="margin-top:-15%;">sppgiw</p></div>
+                    <p class="specialtext">↓ CLICK</p><a onclick='pageswitch("eog", "priv")'>.</a>
+                </section>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
